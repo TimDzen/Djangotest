@@ -27,12 +27,3 @@ class ProductSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'quantity', 'warehouse']
 
 
-class DeliverySerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Delivery
-        fields = ['id', 'supplier', 'product', 'quantity']
-
-class PickupSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Pickup
-        fields = ['id', 'consumer', 'product', 'quantity']

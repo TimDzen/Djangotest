@@ -16,10 +16,4 @@ class ProductViewSet(viewsets.ModelViewSet):
 
 
 
-class DeliveryViewSet(viewsets.ModelViewSet):
-    queryset = Delivery.objects.all()
-    serializer_class = DeliverySerializer
 
-class PickupViewSet(viewsets.ModelViewSet):
-    queryset = Pickup.objects.all()
-    serializer_class = PickupSerializer
