@@ -1,17 +1,14 @@
-from rest_framework.routers import DefaultRouter
+from django.urls import include, path
+from rest_framework import routers
+from .views import UserViewSet, WarehouseViewSet, ProductViewSet, DeliveryViewSet, PickupViewSet
 
-from api.views import CustomUserViewSet, WarehouseViewSet, ProductViewSet, ProductDeliveryViewSet, \
-    ProductWithdrawalViewSet
-
-router = DefaultRouter()
-router.register('users', CustomUserViewSet)
-router.register('warehouse', WarehouseViewSet)
-router.register('product', ProductViewSet)
-router.register('ProductDelivery', ProductDeliveryViewSet)
-router.register('ProductDelivery', ProductWithdrawalViewSet)
+router = routers.DefaultRouter()
+router.register(r'users', UserViewSet)
+router.register(r'warehouses', WarehouseViewSet)
+router.register(r'products', ProductViewSet)
+router.register(r'deliveries', DeliveryViewSet)
+router.register(r'pickups', PickupViewSet)
 
 urlpatterns = [
-
+    path('', include(router.urls)),
 ]
-
-urlpatterns.extend(router.urls)
