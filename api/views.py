@@ -14,6 +14,8 @@ class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
+
+
 class DeliveryViewSet(viewsets.ModelViewSet):
     queryset = Delivery.objects.all()
     serializer_class = DeliverySerializer
