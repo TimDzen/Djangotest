@@ -1,6 +1,6 @@
 from rest_framework import viewsets
 from .models import CustomUser, Warehouse, Product, Delivery, Pickup
-from .serializer import UserSerializer, WarehouseSerializer, ProductSerializer, DeliverySerializer, PickupSerializer
+from .serializer import UserSerializer, WarehouseSerializer, ProductSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
     queryset = CustomUser.objects.all()
