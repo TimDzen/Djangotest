@@ -1,5 +1,5 @@
 from rest_framework import viewsets
-from .models import CustomUser, Warehouse, Product, Delivery, Pickup
+from .models import CustomUser, Warehouse, Product
 from .serializer import UserSerializer, WarehouseSerializer, ProductSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
