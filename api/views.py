@@ -3,7 +3,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from .models import CustomUser, Warehouse, Product
 from .permissions import CanSupplyProduct, CanRetrieveProduct, IsSupplier, IsConsumer
-from .serializers import UserSerializer, WarehouseSerializer, ProductSerializer
+from .serializer import UserSerializer, WarehouseSerializer, ProductSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -20,7 +20,10 @@ class WarehouseViewSet(viewsets.ModelViewSet):
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    permission_classes = [permissions.IsAuthenticated, CanSupplyProduct, CanRetrieveProduct]
+    permission_classes = [permissions.IsAuthenticated,
+                          CanSupplyProduct, 
+                          CanRetrieveProduct
+                         ]
 
     @action(detail=True, methods=['post'], url_path='supply', permission_classes=[IsSupplier])
     def supply_product(self, request, pk=None):
