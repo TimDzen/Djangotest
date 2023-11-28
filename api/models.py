@@ -15,4 +15,4 @@ class Warehouse(models.Model):
 class Product(models.Model):
     name = models.CharField(max_length=20)
     warehouse = models.ForeignKey(Warehouse, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField(Default = 0)
+    quantity = models.PositiveIntegerField(default=0)
